@@ -1,0 +1,29 @@
+{
+  "name": "minify",
+  "version": "1.0.0",
+  "description": "a link shortening website",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Codeprinz-1/minify.git"
+  },
+  "keywords": [
+    "link",
+    "shortener"
+  ],
+  "author": "Prince",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Codeprinz-1/minify/issues"
+  },
+  "homepage": "https://github.com/Codeprinz-1/minify#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "t": "^0.5.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}

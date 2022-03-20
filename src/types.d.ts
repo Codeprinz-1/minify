@@ -1,6 +1,6 @@
 interface Link {
   slug: string;
-  url: string;
-  hours: number;
   secret: string;
+  url?: string;
+  hours?: number;
 }

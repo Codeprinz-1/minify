@@ -6,4 +6,5 @@ interface LinkType {
   daysToLive?: number;
   createDate?: number;
   timeToLive?: number;
+  daysToAdd?: number;
 }

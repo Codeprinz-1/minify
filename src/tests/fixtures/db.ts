@@ -1,3 +1,5 @@
+import Link from "../../models/link";
+
 export const id1: string = "shgeiutongipstoietiyuti";
 export const id2: string = "eorieopnldsoiyetngosytiy";
 export const secret1: string = "teiuyont";

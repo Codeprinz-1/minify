@@ -1,6 +1,7 @@
 import request from "supertest";
 import Link from "../models/link";
 import App from "../app";
+import { id2, id1, secret2 } from "./fixtures/db";
 
 test("Should return a created shortlink", async () => {
   const response = await request(App)
@@ -8,29 +9,39 @@ test("Should return a created shortlink", async () => {
     .send({
       url: "www.google.com",
       daysToLive: 4,
-      secret: 'titietieowiou'
+      secret: "titietieowiou",
     } as LinkType)
     .expect(201);
 
-  const link = Link.findBySlug(response.body.slug);
+  const link: LinkType = await Link.findById(response.body.slug);
   expect(link).not.toBeNull();
 });
 
-test("Should update time to live of link endtry", async () => {
-  let timeToLive = 
-  let hoursToAdd = 40
+test("Should update time to live", async () => {
+  let daysToLive = await Link.findById(id2);
+  let daysToAdd = 40;
 
-  await request(App).put('/create').send({
-      slug: testLink.slug,
-      secret: testLInk.secret
-  }).expect(200)
-  
+  await request(App)
+    .put("/create")
+    .send({
+      slug: id2,
+      secret: secret2,
+      daysToAdd,
+    } as LinkType)
+    .expect(200);
+
+  const link: LinkType = await Link.findById(id2);
+  expect(link.daysToLive).toBe(daysToAdd + daysToLive);
 });
 
-test('Should return a 404 when trying to acces a resource that doesnt exist')
+test("Should delete resource when time to live is past");
 
-test('Should  not allow a user to update an entry when trying with the wrong secret')
+test("Should return a 404 when trying to acces a resource that doesnt exist");
 
-test('Should return the home page')
+test(
+  "Should  not allow a user to update an entry when trying with the wrong secret"
+);
 
-test('Should redirect user to the assigned url if the slug is valid')
+test("Should return the home page");
+
+test("Should redirect user to the assigned url if the slug is valid");

@@ -3,7 +3,7 @@ interface Link {
   slug: string;
   secret: string;
   url?: string;
-  days?: number;
+  daysToLive?: number;
   createDate: number;
   timeToLive: number;
 }

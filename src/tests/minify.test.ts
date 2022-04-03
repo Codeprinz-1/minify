@@ -17,7 +17,7 @@ test("Should return a created shortlink", async () => {
   expect(link).not.toBeNull();
 });
 
-test("Should update time to live", async () => {
+test("Should update days to live", async () => {
   let daysToLive = await Link.findById(id2);
   let daysToAdd = 40;
 

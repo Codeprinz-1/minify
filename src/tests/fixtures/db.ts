@@ -6,7 +6,7 @@ export const secret1: string = "teiuyont";
 export const secret2: string = "shtoeiyth";
 
 const testLInk1: Link = {
-  _id: "sityentieytdityeoty",
+  _id: id1,
   url: "www.google.com",
   secret: secret1,
   createDate: Date.now(),
@@ -14,7 +14,7 @@ const testLInk1: Link = {
 };
 
 const testLink2: Link = {
-  _id: "eityoendoiteoistheiypeui",
+  _id: id2,
   url: "www.google.com",
   secret: secret2,
   createDate: Date.now(),

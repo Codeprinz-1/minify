@@ -1,0 +1,3 @@
+const testLInk : Link = {
+    ur
+}

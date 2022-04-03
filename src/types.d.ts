@@ -4,5 +4,5 @@ interface Link {
   secret: string;
   url?: string;
   days?: number;
-  createDate: Date;
+  createDate: number;
 }

@@ -1,4 +1,4 @@
-interface Link {
+interface LinkType {
   _id?: string;
   slug?: string;
   secret?: string;

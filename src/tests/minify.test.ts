@@ -34,7 +34,11 @@ test("Should update days to live", async () => {
   expect(link.daysToLive).toBe(daysToAdd + daysToLive);
 });
 
-test("Should delete resource when time to live is past");
+test("Should delete resource when days to live is past", async () => {
+  // cron code
+  const link: LinkType = await Link.findById(id1);
+  expect(link).toBeNull();
+});
 
 test("Should return a 404 when trying to acces a resource that doesnt exist");
 

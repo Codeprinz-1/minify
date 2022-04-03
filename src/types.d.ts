@@ -5,4 +5,5 @@ interface Link {
   url?: string;
   days?: number;
   createDate: number;
+  timeToLive: number;
 }

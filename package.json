@@ -29,5 +29,8 @@
     "supertest": "^6.2.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.0"
   }
 }

@@ -7,8 +7,9 @@ test("Should return a created shortlink", async () => {
     .post("/create")
     .send({
       url: "www.google.com",
-      hours: "400",
-    })
+      daysToLive: 4,
+      secret: 'titietieowiou'
+    } as LinkType)
     .expect(201);
 
   const link = Link.findBySlug(response.body.slug);
@@ -25,3 +26,11 @@ test("Should update time to live of link endtry", async () => {
   }).expect(200)
   
 });
+
+test('Should return a 404 when trying to acces a resource that doesnt exist')
+
+test('Should  not allow a user to update an entry when trying with the wrong secret')
+
+test('Should return the home page')
+
+test('Should redirect user to the assigned url if the slug is valid')

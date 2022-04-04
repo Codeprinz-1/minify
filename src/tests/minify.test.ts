@@ -2,6 +2,7 @@ import request from "supertest";
 import Link from "../models/link";
 import App from "../app";
 import { id2, id1, secret2 } from "./fixtures/db";
+import { databaseJob } from "../cron/cron";
 
 test("Should return a created shortlink", async () => {
   const response = await request(App)
@@ -35,17 +36,22 @@ test("Should update days to live", async () => {
 });
 
 test("Should delete resource when days to live is past", async () => {
-  // cron code
+  await databaseJob();
   const link: LinkType = await Link.findById(id1);
   expect(link).toBeNull();
 });
 
-test("Should return a 404 when trying to acces a resource that doesnt exist");
+test("Should  not allow a user to update an entry when trying with the wrong secret", async () => {
+  await request(App)
+    .put("/create")
+    .send({
+      slug: id2,
+      secret: "tyhgi",
+      daysToAdd: 7,
+    } as LinkType)
+    .expect(400);
+});
 
-test(
-  "Should  not allow a user to update an entry when trying with the wrong secret"
-);
-
-test("Should return the home page");
-
-test("Should redirect user to the assigned url if the slug is valid");
+test("Should redirect user to the assigned url if the slug is valid", async () => {
+  await request(App).get(`localhost:3003/${secret2}`).expect(302);
+});

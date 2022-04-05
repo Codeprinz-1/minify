@@ -8,4 +8,4 @@ export const databaseJob = async () => {
       doc.remove();
   }
 };
-export const testCronJob = CronManager.schedule("0 0 * * * *", databaseJob);
+export default CronManager.schedule("0 0 * * * *", databaseJob);

@@ -5,7 +5,6 @@ import express from "express";
 import linkRouter from "./routers/link";
 
 const app = express();
-const port = process.env.PORT || 3003;
 
 const viewPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");

@@ -30,6 +30,7 @@
     "@types/node-cron": "^3.0.1",
     "@types/nodemon": "^1.19.1",
     "@types/supertest": "^2.0.11",
+    "env-cmd": "^10.1.0",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2",

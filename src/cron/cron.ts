@@ -4,7 +4,7 @@ import { cronLog, getDatDifference } from "../utils";
 
 export const databaseJob = async () => {
   for await (const doc of Link.find()) {
-    if (doc.daysToLive < getDatDifference(doc.createDate, Date.now()))
+    if (doc.daysToLive! < getDatDifference(doc.createDate!, Date.now()))
       doc.remove();
   }
 };

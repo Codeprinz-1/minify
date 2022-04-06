@@ -8,6 +8,7 @@ export const databaseJob = async () => {
       doc.remove();
   }
 };
+
 export default CronManager.schedule("0 0 * * * *", async () => {
   cronLog("running databaseJob");
   await databaseJob();

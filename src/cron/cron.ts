@@ -1,6 +1,6 @@
 import CronManager from "node-cron";
 import Link from "../models/link";
-import { getDatDifference } from "../utils";
+import { cronLog, getDatDifference } from "../utils";
 
 export const databaseJob = async () => {
   for await (const doc of Link.find()) {
@@ -8,4 +8,8 @@ export const databaseJob = async () => {
       doc.remove();
   }
 };
-export default CronManager.schedule("0 0 * * * *", databaseJob);
+export default CronManager.schedule("0 0 * * * *", async () => {
+  cronLog("running databaseJob");
+  await databaseJob();
+  cronLog("finished running databaseJob");
+});

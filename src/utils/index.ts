@@ -6,7 +6,7 @@ export const getDatDifference = (date1: number, date2: number): number => {
 };
 
 export const logger = (context: string) => (log: string) => {
-  console.log(`\n[${context}] - ${log}\n`);
+  console.log(`[${context}] - ${log}`);
 };
 
 export const apiLog = logger("API");

@@ -3,29 +3,46 @@
 <html>
 
 <head>
-    <title>Weather</title>
-    <link rel="icon" href="/img/weather.png">
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Minify - Home</title>
+    <link rel="stylesheet" href="../styles/index.css">
 </head>
 
 <body>
     <div class="main-content">
         {{>header}}
 
-        <p>Use this site to get your weather!</p>
+        <div>
+            <p class="main">A url shortener with no restrictions  </p>
+            <p class="sub">shortening links easily with a few clicks, get unlimited access to your short links all at no cost</p>
+        </div>
 
-        <form>
-            <input placeholder="Location">
-            <button>Search</button>
+        <div class="tabs"> 
+            <div>Create short link</div>
+            <div>Extend shortlink duration</div>
+        </div>
+        <form class="form1">
+            <h3>Create short link</h3>
+            <input placeholder="URL*">
+            <input placeholder="slug (optional)">
+            <input placeholder="secret*">
+            <input type="date" placeholder="duration*">
+            <button>Create</button>
         </form>
 
-        <p id="message-1"></p>
-        <p id="message-2"></p>
+        <form class="form2">
+            <h3>Extend shortlink duration</h3>
+            <input placeholder="URL*">
+            <input placeholder="slug (optional)">
+            <input placeholder="secret*">
+            <input type="date" placeholder="duration*">
+            <button>Create</button>
+        </form>
+
     </div>
 
-    {{>footer}}
+        {{>footer}}
 
-    <script src="/js/app.js"></script>
+    <script src="../scripts/index.js"></script>
 </body>
 
 </html>

@@ -10,3 +10,4 @@ export const logger = (context: string) => (log: string) => {
 };
 
 export const apiLog = logger("API");
+export const cronLog = logger("cron");

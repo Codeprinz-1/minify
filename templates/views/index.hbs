@@ -4,7 +4,79 @@
 
 <head>
     <title>Minify - Home</title>
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="/public/styles/index.css">
+    <style>
+        * {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+        .main-content > * {
+            padding: 1.3rem;
+        }
+
+        .main {
+            font-size: 2rem;
+            color: rgb(2, 2, 41);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .sub {
+margin-top: 0;
+font-size: 20px;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tabs > div {
+            padding: 0.6rem;
+            border: 1px solid black;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .tabs > div.selected {
+            background-color: #2a5bd7;
+            border: 1px solid #2a5bd7;
+            color: white;
+            cursor: initial;
+        }
+
+        form {
+            margin-left: 1.3rem;
+            display: flex;
+            flex-direction: column;
+            padding-top: 0 !important;
+gap: 20px;
+
+        }
+
+        input {
+            height: 2rem;
+            font-size: 1rem;
+            color: gray;
+        }
+
+        @media only screen and (min-width: 768px) {
+            input {
+                width: 25rem;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            color: white;
+            font-size: 1rem;
+            background-color: #2a5bd7;
+            width: fit-content;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,36 +85,55 @@
 
         <div>
             <p class="main">A url shortener with no restrictions  </p>
-            <p class="sub">shortening links easily with a few clicks, get unlimited access to your short links all at no cost</p>
+            <p class="sub">shorten links easily with a few clicks, get unlimited access to your short links all at no cost</p>
         </div>
 
         <div class="tabs"> 
-            <div>Create short link</div>
-            <div>Extend shortlink duration</div>
+            <div class="selected 1" onclick="select(this, 2)">Create short link</div>
+            <div class="2" onclick="select(this, 1)">Extend shortlink duration</div>
         </div>
-        <form class="form1">
-            <h3>Create short link</h3>
-            <input placeholder="URL*">
+        <form class="form1" onsubmit="createSlug(this)">
+            <input placeholder="URL*" required>
             <input placeholder="slug (optional)">
-            <input placeholder="secret*">
-            <input type="date" placeholder="duration*">
+            <input placeholder="secret*" required>
+            <input type="date" placeholder="duration*" required>
             <button>Create</button>
         </form>
 
-        <form class="form2">
-            <h3>Extend shortlink duration</h3>
-            <input placeholder="URL*">
-            <input placeholder="slug (optional)">
-            <input placeholder="secret*">
-            <input type="date" placeholder="duration*">
-            <button>Create</button>
+        <form class="form2 d-none" onsubmit="extendSlug(this)">
+            <input placeholder="slug*" required>
+            <input placeholder="secret*" required>
+            <input type="date" placeholder="duration*"  required>
+            <button>Extend</button>
         </form>
 
     </div>
 
-        {{>footer}}
+        {{!-- {{>footer}} --}}
 
-    <script src="../scripts/index.js"></script>
+    {{!-- <script src="/public/scripts/index.js"></script> --}}
+    <script>
+const select = (e, second) => {
+    const form1 = document.getElementsByClassName('form1')
+    const form2 = document.getElementsByClassName('form2')
+    e.classList.add('selected')
+    document.getElementsByClassName(second)[0].classList.remove('selected')
+    if (second == 2) {
+        form2[0].classList.add('d-none')
+        form1[0].classList.remove('d-none')
+    } else {
+        form1[0].classList.add('d-none')
+        form2[0].classList.remove('d-none')
+    }
+}
+
+const createSlug = (e) => {
+}
+
+const expendSlug = (e) => {
+
+}
+    </script>
 </body>
 
 </html>

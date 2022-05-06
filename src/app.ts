@@ -14,6 +14,7 @@ app.set("views", viewPath);
 hbs.registerPartials(partialsPath);
 
 app.use(express.json());
+app.use(express.static("public"));
 app.use(linkRouter);
 
 export default app;

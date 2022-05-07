@@ -1,11 +1,10 @@
 import CronManager from "node-cron";
 import Link from "../models/link";
-import { cronLog, getDatDifference } from "../utils";
+import { cronLog, isInThePast } from "../utils";
 
 export const databaseJob = async () => {
   for await (const doc of Link.find()) {
-    if (doc.daysToLive! < getDatDifference(doc.createDate!, Date.now()))
-      doc.remove();
+    isInThePast(doc.expiryDate!) && doc.remove();
   }
 };
 

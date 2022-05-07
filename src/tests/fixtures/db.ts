@@ -5,20 +5,20 @@ export const id2: string = "eorieopnldsoiyetngosytiy";
 export const secret1: string = "teiuyont";
 export const secret2: string = "shtoeiyth";
 
-const testLInk1: Link = {
+const testLInk1: LinkType = {
   _id: id1,
   url: "www.google.com",
   secret: secret1,
-  createDate: Date.now(),
-  daysToLive: -1,
+  createdAt: Date.now(),
+  expiryDate: "2020-01-01",
 };
 
-const testLink2: Link = {
+const testLink2: LinkType = {
   _id: id2,
   url: "www.google.com",
   secret: secret2,
-  createDate: Date.now(),
-  daysToLive: 1,
+  createdAt: Date.now(),
+  expiryDate: "2023-01-01",
 };
 
 export const setUpDatabase = async () => {

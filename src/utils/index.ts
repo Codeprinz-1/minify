@@ -1,6 +1,7 @@
-export const isInThePast = (date: Date | number): boolean => {
+export const isInThePast = (date: string): boolean => {
   const now = new Date();
-  return date < now;
+  const expiryDate = new Date(date);
+  return expiryDate < now;
 };
 
 export const logger = (context: string) => (log: string) => {

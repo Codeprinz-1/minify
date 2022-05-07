@@ -1,4 +1,4 @@
-export const isInThePast = (date: Date): boolean => {
+export const isInThePast = (date: Date | number): boolean => {
   const now = new Date();
   return date < now;
 };

@@ -3,6 +3,6 @@ interface LinkType {
   slug?: string;
   secret?: string;
   url?: string;
-  expiryDate?: number;
+  expiryDate?: string;
   createDate?: number;
 }

@@ -4,5 +4,5 @@ interface LinkType {
   secret?: string;
   url?: string;
   expiryDate?: string;
-  createDate?: number;
+  createdAt?: number;
 }

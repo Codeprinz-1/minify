@@ -1,5 +1,6 @@
 import express from "express";
 import Link from "../models/link";
+import { generateSlug } from "../utils";
 
 export const homepageController = (
   req: express.Request,

@@ -9,35 +9,33 @@ test("Should return a created shortlink", async () => {
     .post("/create")
     .send({
       url: "www.google.com",
-      daysToLive: 4,
+      expiryDate: "2023-01-01",
       secret: "titietieowiou",
     } as LinkType)
     .expect(201);
 
-  const link: LinkType = await Link.findById(response.body.slug);
+  const link: LinkType | null = await Link.findById(response.body.slug);
   expect(link).not.toBeNull();
 });
 
-test("Should update days to live", async () => {
-  let daysToLive = await Link.findById(id2);
-  let daysToAdd = 40;
-
+test("Should update expiry date", async () => {
+  const newExpiryDate = "2023-01-01";
   await request(App)
     .put("/create")
     .send({
       slug: id2,
       secret: secret2,
-      daysToAdd,
+      expiryDate: newExpiryDate,
     } as LinkType)
     .expect(200);
 
-  const link: LinkType = await Link.findById(id2);
-  expect(link.daysToLive).toBe(daysToAdd + daysToLive);
+  const link: LinkType | null = await Link.findById(id2);
+  expect(link?.expiryDate).toBe(newExpiryDate);
 });
 
 test("Should delete resource when days to live is past", async () => {
   await databaseJob();
-  const link: LinkType = await Link.findById(id1);
+  const link: LinkType | null = await Link.findById(id1);
   expect(link).toBeNull();
 });
 
@@ -47,7 +45,7 @@ test("Should  not allow a user to update an entry when trying with the wrong sec
     .send({
       slug: id2,
       secret: "tyhgi",
-      daysToAdd: 7,
+      expiryDate: "2023-01-01",
     } as LinkType)
     .expect(400);
 });

@@ -14,8 +14,11 @@
         }
 
         const createSlug = (e) => {
+            e.preventDefault()
+            console.log('working')
         }
 
-        const extendSlug = (e) => {
-
+        const extendDuration = (e) => {
+            e.preventDefault()
+            console.log('working')
         }

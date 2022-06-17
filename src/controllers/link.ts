@@ -42,6 +42,7 @@ export const createController = async (
     url: req.body.url,
     slug,
     createdAt: new Date(),
+    expiryDate: req.body.expiryDate,
     secret: req.body.secret,
   });
   await link.save();

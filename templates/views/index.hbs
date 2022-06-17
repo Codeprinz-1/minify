@@ -11,33 +11,34 @@
     <div class="main-content">
         {{>header}}
 
-        <div>
-            <p class="main">A url shortener with no restrictions  </p>
-            <p class="sub">shorten links easily with a few clicks, get unlimited access to your short links all at no cost</p>
+        <div class="main-text">
+            <p class="main">A url shortener with no restrictions </p>
+            <p class="sub">shorten links easily with a few clicks, get unlimited access to your short links all at no
+                cost</p>
         </div>
 
-        <div class="tabs"> 
+        <div class="tabs">
             <div class="selected 1" onclick="select(this, 2)">Create short link</div>
             <div class="2" onclick="select(this, 1)">Extend shortlink duration</div>
         </div>
         <form class="form1" onsubmit="createSlug(this)">
-            <input placeholder="URL*" required>
-            <input placeholder="slug (optional)">
-            <input placeholder="secret*" required type="password">
-            <input type="date" placeholder="duration*" required>
+            <input name="url" placeholder="URL*" required>
+            <input name="slug" placeholder="slug (optional)">
+            <input name="secret" placeholder="secret*" required type="password">
+            <input  type="date" placeholder="duration*" required>
             <button onclick="createSlug()">Create</button>
         </form>
 
         <form class="form2 d-none">
             <input placeholder="slug*" required>
             <input placeholder="secret*" required type="password">
-            <input type="date" placeholder="duration*"  required>
-            <button >Extend</button>
+            <input type="date" placeholder="duration*" required>
+            <button>Extend</button>
         </form>
 
     </div>
 
-        {{!-- {{>footer}} --}}
+    {{!-- {{>footer}} --}}
 
     <script src="scripts/index.js"></script>
 

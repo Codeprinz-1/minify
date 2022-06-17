@@ -1,70 +1,72 @@
 * {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
-    }
-    
-    .main-content > * {
-        padding: 1.3rem;
-    }
-    
-    .main {
-        font-size: 2rem;
-        color: rgb(2, 2, 41);
-        font-weight: 600;
-        margin-bottom: 0;
-    }
-    
-    .sub {
-        margin-top: 0;
-        font-size: 20px;
-    }
-    
-    .tabs {
-        display: flex;
-    }
-    
-    .tabs>div {
-        padding: 0.6rem;
-        border: 1px solid black;
-        font-weight: 500;
-        cursor: pointer;
-    }
-    
-    .tabs>div.selected {
-        background-color: #2a5bd7;
-        border: 1px solid #2a5bd7;
-        color: white;
-        cursor: initial;
-    }
-    
-    form {
-        margin-left: 1.3rem;
-        display: flex;
-        flex-direction: column;
-        padding-top: 0 !important;
-        gap: 20px;
-    
-    }
-    
-    input {
-        height: 2rem;
-        font-size: 1rem;
-    }
-    
-    @media only screen and (min-width: 768px) {
-        input {
-            width: 25rem;
-        }
-    }
-    
-    button {
-        cursor: pointer;
-        color: white;
-        font-size: 1rem;
-        background-color: #2a5bd7;
-        width: fit-content;
-    }
-    
-    .d-none {
-        display: none;
-    }
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.main-content > * {
+  padding: 1.3rem;
+}
+
+.main-text {
+  padding-top: 0;
+}
+
+.main {
+  font-size: 2rem;
+  color: rgb(2, 2, 41);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.sub {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tabs > div {
+  padding: 0.6rem;
+  border: 1px solid black;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tabs > div.selected {
+  background-color: #2a5bd7;
+  border: 1px solid #2a5bd7;
+  color: white;
+  cursor: initial;
+}
+
+form {
+  margin-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0 !important;
+  gap: 20px;
+}
+
+input {
+  height: 2rem;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  input {
+    width: 25rem;
+  }
+}
+
+button {
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  background-color: #2a5bd7;
+  width: fit-content;
+}
+
+.d-none {
+  display: none;
+}

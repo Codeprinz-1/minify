@@ -21,12 +21,12 @@
             <div class="selected 1" onclick="select(this, 2)">Create short link</div>
             <div class="2" onclick="select(this, 1)">Extend shortlink duration</div>
         </div>
-        <form class="form1" onsubmit="createSlug(this)">
+        <form class="form1" method="post" enctype="multipart/form-data" action="/create">
             <input name="url" placeholder="URL*" required>
             <input name="slug" placeholder="slug (optional)">
             <input name="secret" placeholder="secret*" required type="password">
-            <input  type="date" placeholder="duration*" required>
-            <button onclick="createSlug()">Create</button>
+            <input  name="date" type="date" placeholder="duration*" required>
+            <button  type="submit">Create</button>
         </form>
 
         <form class="form2 d-none">

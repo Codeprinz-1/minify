@@ -27,7 +27,10 @@ export const createController = async (
   if (req.body.slug) {
     const link: LinkType | null = await Link.findById(req.body.slug);
     if (link) {
-      res.status(400).send("slug is already taken, please choose another one");
+      res.status(409).send({
+        field: "slug",
+        message: "slug is already taken, please choose another one",
+      });
     } else {
       slug = req.body.slug;
     }
@@ -42,9 +45,9 @@ export const createController = async (
     url: req.body.url,
     slug,
     createdAt: new Date(),
-    expiryDate: req.body.expiryDate,
+    expiryDate: req.body.date,
     secret: req.body.secret,
   });
   await link.save();
-  res.status(201).send({ slug });
+  res.status(200).send({ slug });
 };

@@ -2,47 +2,53 @@
 
 <html>
 
-<head>
-    <title>Minify - Home</title>
-    <link rel="stylesheet" href="styles/index.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</head>
+    <head>
+        <title>Minify - Home</title>
+        <link rel="stylesheet" href="styles/index.css">
+        <meta name="description" content="shorten links easily with few clicks, get unlimited access to your short links all at no cost">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
 
-<body>
-    <div class="main-content">
-        {{>header}}
+    <body>
+        <div class="main-content">
+            {{>header}}
 
-        <div class="main-text">
-            <p class="main">A url shortener with no restrictions </p>
-            <p class="sub">shorten links easily with a few clicks, get unlimited access to your short links all at no
-                cost</p>
+            <div id="content">
+                <div class="main-text">
+                    <p class="main">A url shortener with no restrictions </p>
+                    <p class="sub">shorten links easily with a few clicks, get unlimited access to your short links all at no cost</p>
+                </div>
+
+                <div class="tabs">
+                    <div class="selected 1" onclick="select(this, 2)">Create short link</div>
+                    <div class="2" onclick="select(this, 1)">Extend shortlink duration</div>
+                </div>
+                <form class="form1" method="post" enctype="multipart/form-data" action="/create" onsubmit="submitForm(event)">
+                    <input name="url" placeholder="URL*" required>
+                    <input oninput="removeSpace(event)" name="slug" placeholder="slug (optional)">
+                    <input name="secret" placeholder="secret*" required type="password">
+                    <input  name="date" type="date" placeholder="duration*" required>
+                    <button  type="submit">Create</button>
+                </form>
+
+                <form class="form2 d-none">
+                    <input placeholder="slug* (the part after the /)" required>
+                    <input placeholder="secret*" required type="password">
+                    <input type="date" placeholder="duration*" required>
+                    <button>Extend</button>
+                </form>
+
+            </div>
+
         </div>
-
-        <div class="tabs">
-            <div class="selected 1" onclick="select(this, 2)">Create short link</div>
-            <div class="2" onclick="select(this, 1)">Extend shortlink duration</div>
+        <div id="success">
+            Your short url has been created successfully you can now visit and share your url using <a id="link" target="_blank" href=""></a>. It expires on <span id="date"></span>, the slug is the part after the <code>/</code>, you would need it if you want to extend the duration of the link. <b>Remember to copy the url, there's no way to retrieve it if you loose it</b>.
         </div>
-        <form class="form1" method="post" enctype="multipart/form-data" action="/create">
-            <input name="url" placeholder="URL*" required>
-            <input name="slug" placeholder="slug (optional)">
-            <input name="secret" placeholder="secret*" required type="password">
-            <input  name="date" type="date" placeholder="duration*" required>
-            <button  type="submit">Create</button>
-        </form>
-
-        <form class="form2 d-none">
-            <input placeholder="slug*" required>
-            <input placeholder="secret*" required type="password">
-            <input type="date" placeholder="duration*" required>
-            <button>Extend</button>
-        </form>
-
-    </div>
 
     {{!-- {{>footer}} --}}
 
-    <script src="scripts/index.js"></script>
+        <script src="scripts/index.js"></script>
 
-</body>
+    </body>
 
 </html>

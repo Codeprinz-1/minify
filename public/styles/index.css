@@ -6,6 +6,10 @@
   padding: 1.3rem;
 }
 
+#content > * {
+  padding: 1.3rem;
+}
+
 .main-text {
   padding-top: 0;
 }
@@ -31,6 +35,14 @@
   border: 1px solid black;
   font-weight: 500;
   cursor: pointer;
+}
+
+.tabs > div:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.tabs > div:last-child {
+  border-radius: 0 8px 8px 0;
 }
 
 .tabs > div.selected {
@@ -65,8 +77,36 @@ button {
   font-size: 1rem;
   background-color: #2a5bd7;
   width: fit-content;
+  border-radius: 5px;
 }
 
 .d-none {
   display: none;
+}
+
+#content {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#success {
+  display: none;
+  color: green;
+  margin: 2rem;
+  padding: 1.5rem;
+  background-color: #b7f5b7;
+  border-radius: 10px;
+}
+
+#link {
+  color: chocolate;
+}
+
+code {
+  color: #444;
+  background-color: #aaa;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
 }

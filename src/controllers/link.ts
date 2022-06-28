@@ -14,10 +14,20 @@ export const updateController = (
   res: express.Response
 ) => {};
 
-export const redirectController = (
+export const redirectController = async (
   req: express.Request,
   res: express.Response
-) => {};
+) => {
+  const link: LinkType | null = await Link.findById(req.params.slug);
+  if (!link) {
+    res.render("index", {
+      status: "error",
+      message: "URL slug does not exist",
+    });
+    return;
+  }
+  res.redirect(("//" + link?.url) as string);
+};
 
 export const createController = async (
   req: express.Request,
@@ -28,9 +38,11 @@ export const createController = async (
     const link: LinkType | null = await Link.findById(req.body.slug);
     if (link) {
       res.status(409).send({
+        status: "error",
         field: "slug",
         message: "slug is already taken, please choose another one",
       });
+      return;
     } else {
       slug = req.body.slug;
     }
@@ -42,12 +54,12 @@ export const createController = async (
   }
 
   const link = new Link({
-    url: req.body.url,
-    slug,
+    _id: slug,
+    url: req.body.url.replace(/^https?:\/\//, ""),
     createdAt: new Date(),
     expiryDate: req.body.date,
     secret: req.body.secret,
   });
   await link.save();
-  res.status(200).send({ slug });
+  res.status(200).send({ status: "success", slug, date: req.body.date });
 };
